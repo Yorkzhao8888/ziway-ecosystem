@@ -1,0 +1,72 @@
+# ============================================================================
+# 知味生态 A1.3 本地开发环境
+# 服务：Go API / Postgres / Kafka+Zookeeper / Migrate 初始化
+# 启动：docker compose up -d
+# 验证：curl http://localhost:8080/healthz
+# ============================================================================
+version: "3.9"
+
+services:
+  # ---------- 数据层 ----------
+  postgres:
+    image: postgres:16-alpine
+    container_name: ziway-pg
+    environment:
+      POSTGRES_USER: ziway
+      POSTGRES_PASSWORD: ziway123
+      POSTGRES_DB: ziway
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - ../01_数据库迁移:/docker-entrypoint-initdb.d  # 自动执行 0001_init.up.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ziway"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  zookeeper:
+    image: bitnami/zookeeper:3.8
+    container_name: ziway-zk
+    environment:
+      ZOO_MY_ID: 1
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: bitnami/kafka:3.6
+    container_name: ziway-kafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092
+    ports:
+      - "9092:9092"
+
+  # ---------- 应用层（Go API，源码挂载热重载） ----------
+  api:
+    build:
+      context: ../../..           # 指向 知味生态_API代码骨架/
+      dockerfile: go-server/Dockerfile
+    container_name: ziway-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_started
+    environment:
+      APP_ENV: development
+      DB_DSN: "host=postgres user=ziway password=ziway123 dbname=ziway port=5432 sslmode=disable"
+      KAFKA_BROKERS: "kafka:9092"
+      XBUS_TOPIC: "ziway-xbus"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../../..:/app              # 源码挂载，配合 air 热重载
+    command: ["air", "-c", ".air.toml"]
+
+volumes:
+  pg-data:

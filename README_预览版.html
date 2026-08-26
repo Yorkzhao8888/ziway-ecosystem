@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>知味生态 · 新全量文档集 A1.0</title>
+<style>
+  :root {
+    --bg: #0b1220;
+    --card: #111b30;
+    --border: #1e3052;
+    --accent: #3b82f6;
+    --accent2: #22d3ee;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif; line-height: 1.7; padding: 40px 20px; }
+  .wrap { max-width: 1000px; margin: 0 auto; }
+  header { text-align: center; padding: 60px 20px; border: 1px solid var(--border); border-radius: 16px; background: linear-gradient(135deg, #0f1b35 0%, #12294a 100%); margin-bottom: 40px; }
+  header h1 { font-size: 2em; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+  header .sub { color: var(--muted); font-size: 1.05em; }
+  header .badge { display: inline-block; margin-top: 16px; padding: 4px 16px; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent); font-size: 0.9em; }
+  h2 { font-size: 1.4em; margin: 40px 0 16px; padding-left: 12px; border-left: 4px solid var(--accent); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: border-color .2s; }
+  .card:hover { border-color: var(--accent); }
+  .card .num { font-size: 2em; font-weight: 700; color: var(--accent2); opacity: .6; }
+  .card h3 { margin: 8px 0; font-size: 1.05em; }
+  .card p { color: var(--muted); font-size: .9em; }
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .metric { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+  .metric .val { font-size: 2.2em; font-weight: 700; color: var(--accent); }
+  .metric .lbl { color: var(--muted); font-size: .85em; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: .9em; }
+  th, td { padding: 10px 12px; text-align: left; border: 1px solid var(--border); }
+  th { background: #12294a; color: var(--accent2); }
+  tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+  .flow { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 24px 0; font-size: 1.1em; }
+  .flow .step { background: var(--card); border: 1px solid var(--accent); border-radius: 10px; padding: 12px 20px; font-weight: 600; }
+  .flow .arrow { color: var(--accent2); font-size: 1.4em; }
+  .callout { border-left: 4px solid var(--accent2); background: rgba(34,211,238,.06); padding: 16px 20px; border-radius: 0 10px 10px 0; margin-bottom: 24px; }
+  footer { text-align: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: .85em; }
+  code { background: rgba(59,130,246,.15); color: var(--accent2); padding: 2px 6px; border-radius: 4px; font-size: .9em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>知味生态 · 新全量文档集</h1>
+    <div class="sub">基于 v4.9 全部有效决策重构 · 消除技术负债 · 单一事实源</div>
+    <div class="badge">Version A1.0 · 2026-08-26</div>
+  </header>
+
+  <h2>关键数字</h2>
+  <div class="metrics">
+    <div class="metric"><div class="val">8</div><div class="lbl">APP</div></div>
+    <div class="metric"><div class="val">12</div><div class="lbl">BOS</div></div>
+    <div class="metric"><div class="val">12</div><div class="lbl">MBS</div></div>
+    <div class="metric"><div class="val">1</div><div class="lbl">OAS</div></div>
+    <div class="metric"><div class="val">33</div><div class="lbl">合计</div></div>
+    <div class="metric"><div class="val">4</div><div class="lbl">根身份</div></div>
+  </div>
+
+  <h2>五层架构</h2>
+  <table>
+    <tr><th>层级</th><th>隐喻</th><th>核心职责</th></tr>
+    <tr><td>U</td><td>🙋 用户层</td><td>价值主体，产生需求、获得价值</td></tr>
+    <tr><td>APP</td><td>📱 智能终端层</td><td>8 个 APP，用户进入业务区的钥匙</td></tr>
+    <tr><td>BOS</td><td>🏙️ 城市功能区</td><td>12 个业务操作系统</td></tr>
+    <tr><td>MBS</td><td>🏛️ 管理机构</td><td>12 个管理集座 + AMBS(MBS-P)</td></tr>
+    <tr><td>OAS</td><td>👁️ 上帝视角</td><td>全知·全能·全在的技术底座</td></tr>
+  </table>
+
+  <h2>价值链四段</h2>
+  <div class="flow">
+    <div class="step">TM 技术</div><span class="arrow">→</span>
+    <div class="step">DM 产品</div><span class="arrow">→</span>
+    <div class="step">EM 供给</div><span class="arrow">→</span>
+    <div class="step">CM 客户</div>
+  </div>
+  <div class="callout">价值流向：技术 → 产品 → 供给 → 客户。反向：消费需求反馈驱动研发。</div>
+
+  <h2>六位一体生态</h2>
+  <table>
+    <tr><th>平台</th><th>角色</th><th>定位</th></tr>
+    <tr><td>CBOS</td><td>零售运营</td><td>流量入口</td></tr>
+    <tr><td>DBOS</td><td>事业经营</td><td>利润中心</td></tr>
+    <tr><td>EBOS</td><td>供给交易</td><td>效率引擎</td></tr>
+    <tr><td><strong>PBOS</strong></td><td><strong>产品研发</strong></td><td><strong>支撑以上三大平台</strong></td></tr>
+    <tr><td>HBOS</td><td>人才职聘</td><td>人力中枢</td></tr>
+    <tr><td>VBOS</td><td>专案运营</td><td>协同中枢</td></tr>
+  </table>
+
+  <h2>文档结构（6 卷）</h2>
+  <div class="grid">
+    <div class="card"><div class="num">01</div><h3>架构总纲</h3><p>五层隐喻体系、关键数字、核心原则</p></div>
+    <div class="card"><div class="num">02</div><h3>角色体系</h3><p>四根身份、十二角色、U-M-X 映射</p></div>
+    <div class="card"><div class="num">03</div><h3>技术架构</h3><p>五层说明、BOS/MBS/OAS、通信规范</p></div>
+    <div class="card"><div class="num">04</div><h3>业务模型</h3><p>六位一体、价值链四段、神案系统</p></div>
+    <div class="card"><div class="num">05</div><h3>方法论</h3><p>创世纪流程、百泰评估、行业适配</p></div>
+    <div class="card"><div class="num">06</div><h3>治理与运维</h3><p>部署拓扑、API 规范</p></div>
+  </div>
+
+  <h2>重构原则</h2>
+  <div class="callout">
+    <p><strong>R1 消除历史包袱</strong>：不再保留"增量修正文档"的碎片化结构</p>
+    <p><strong>R2 扁平命名，自解释</strong>：文件名即标题，按主题分卷</p>
+    <p><strong>R3 单一权威源</strong>：每个主题只有一个权威文档</p>
+  </div>
+
+  <footer>
+    <p>知味生态 · 百业 · 百泰</p>
+    <p>从"第一个样板间"到"可复制的行业生态操作系统"</p>
+    <p style="margin-top:12px; opacity:.6;">Single Source of Truth · LOCKED · A1.0</p>
+  </footer>
+</div>
+</body>
+</html>

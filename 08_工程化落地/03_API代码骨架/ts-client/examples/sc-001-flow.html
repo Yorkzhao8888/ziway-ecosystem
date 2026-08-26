@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>SC-001 供应商入驻运营 · 全流程演示</title>
+<style>
+  body { font-family: -apple-system, "PingFang SC", sans-serif; max-width: 960px; margin: 24px auto; padding: 0 16px; color: #1a1a1a; }
+  h1 { font-size: 20px; }
+  .sub { color: #666; font-size: 13px; margin-bottom: 16px; }
+  .flow { display: flex; flex-direction: column; gap: 8px; }
+  .step { border: 1px solid #e5e5e5; border-radius: 8px; padding: 10px 14px; display: flex; gap: 12px; align-items: flex-start; }
+  .step .no { background: #2563eb; color: #fff; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .step .body { flex: 1; }
+  .step .tag { font-size: 12px; color: #2563eb; font-weight: 600; }
+  .step .desc { font-size: 13px; }
+  .step .call { font-size: 12px; color: #555; font-family: monospace; background: #f5f5f5; padding: 2px 6px; border-radius: 4px; }
+  .step.ok { border-color: #22c55e; }
+  button { background: #2563eb; color: #fff; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 14px; }
+  button:hover { background: #1d4ed8; }
+  #log { margin-top: 16px; background: #0b1220; color: #7ee787; font-family: monospace; font-size: 12px; padding: 12px; border-radius: 8px; max-height: 280px; overflow: auto; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>🥬 SC-001 · 张记农场入驻知味集市</h1>
+<div class="sub">供应商入驻集市并展开运营 —— 五层架构（U / APP / OS / MS / OAS）全流程。点击按钮逐步走完 12 步，观察每一层的调用。</div>
+
+<div class="flow" id="flow"></div>
+<button id="run" style="margin-top:14px;">▶ 一键走完全流程</button>
+<div id="log"></div>
+
+<script type="module">
+  const API = "http://localhost:8080";
+  const TENANT = "eu_zhangji_farm";
+  const log = (m) => { document.getElementById("log").textContent += m + "\n"; };
+
+  // 12 步流程定义（对应 供应商入驻运营_接口与数据设计.md 时序图编号）
+  const steps = [
+    { no: 1,  tag: "① U→APP→OS→OAS", desc: "企业注册（HU→EU）",       layer: "HOS", call: "POST /api/hos/{tenantId}/resources" },
+    { no: 2,  tag: "② APP→OS→MS",     desc: "申请入驻集市（资质校验）", layer: "EOS", call: "POST /api/eos/{tenantId}/apply" },
+    { no: 3,  tag: "③④ APP→OS→MS",   desc: "店铺装修 + 创建商品 SKU",  layer: "EOS", call: "PUT/POST /api/eos/{tenantId}/resources" },
+    { no: 5,  tag: "⑤⑥⑦ COS→EOS→OAS", desc: "消费者下单 → 履约发货",  layer: "COS/EOS", call: "POST /api/cos/{tenantId}/resources" },
+    { no: 8,  tag: "⑧ COS→EOS",        desc: "确认收货 + 评价",         layer: "COS", call: "POST /api/cos/{tenantId}/reviews" },
+    { no: 9,  tag: "⑨⑩ FMS→FOS→OAS",  desc: "结算生成 → 提现到账",     layer: "FOS", call: "POST /api/fos/{tenantId}/withdrawals" },
+    { no: 11, tag: "⑪⑫ OAS→VMS→VOS",  desc: "运营看板 + 调价扩品",     layer: "VOS", call: "GET /api/vos/{tenantId}/resources" },
+  ];
+
+  // 渲染流程卡片
+  const flow = document.getElementById("flow");
+  steps.forEach((s) => {
+    const el = document.createElement("div");
+    el.className = "step";
+    el.innerHTML = `<div class="no">${s.no}</div><div class="body">
+      <div class="tag">${s.tag} · ${s.layer}</div>
+      <div class="desc">${s.desc}</div>
+      <div class="call">${s.call}</div></div>`;
+    flow.appendChild(el);
+  });
+
+  // 调用后端（后端未启动时优雅降级为日志演示）
+  async function call(kind, method, body) {
+    try {
+      const res = await fetch(`${API}/api/${kind}/${TENANT}/resources`, {
+        method, headers: { "Content-Type": "application/json", "X-Tenant-Id": TENANT },
+        body: body ? JSON.stringify(body) : undefined,
+      });
+      return await res.json();
+    } catch (e) {
+      return { _demo: true, note: "后端未启动，演示模式", error: String(e) };
+    }
+  }
+
+  async function runStep(s, idx) {
+    const cards = flow.children;
+    const result = await call(s.layer.toLowerCase().split("/")[0], "POST", {
+      name: "张记农场", root_role: "EU", category: "有机蔬菜",
+      shop_id: 1, sku: "SKU-001", name: "有机西兰花", price: 9.9, stock: 100,
+      supplier_tenant_id: TENANT, items: [{ product_id: 1, qty: 2 }],
+      order_id: idx + 1, rating: 5, comment: "新鲜！",
+      settlement_id: idx + 1,
+    });
+    cards[idx].classList.add("ok");
+    log(`[步骤 ${s.no}] ${s.desc}`);
+    log(`  → ${s.call}`);
+    log(`  ← ${JSON.stringify(result).slice(0, 200)}\n`);
+  }
+
+  document.getElementById("run").addEventListener("click", async () => {
+    document.getElementById("log").textContent = "";
+    log(`TENANT = ${TENANT}\n`);
+    for (let i = 0; i < steps.length; i++) {
+      await runStep(steps[i], i);
+      await new Promise((r) => setTimeout(r, 400));
+    }
+    log("✅ SC-001 全流程走完（演示模式仅模拟，真实需 docker compose up）");
+  });
+</script>
+</body>
+</html>

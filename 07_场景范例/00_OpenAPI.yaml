@@ -1,0 +1,2069 @@
+openapi: 3.0.3
+info:
+  title: 知味生态 A1.1 API (场景范例汇总)
+  version: A1.1.0
+  description: 基于 07 场景范例 (SC-001~014) 汇总的 RESTful 路径与事件契约骨架。完整字段由各场景增量 DDL 补充。
+servers:
+- url: https://api.ziway.example.com
+  description: 生产
+paths:
+  /api/eos/{{tenantId}}/resources:
+    get:
+      summary: 查询 EOS 资源（SC-001）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 EOS 资源（写，走 Saga，SC-001）
+      responses:
+        '201':
+          description: Created
+  /api/ems/{{tenantId}}/resources:
+    get:
+      summary: 查询 EMS 资源（SC-001）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 EMS 资源（写，走 Saga，SC-001）
+      responses:
+        '201':
+          description: Created
+  /api/cos/{{tenantId}}/resources:
+    get:
+      summary: 查询 COS 资源（SC-001）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 COS 资源（写，走 Saga，SC-001）
+      responses:
+        '201':
+          description: Created
+  /api/pos/{{tenantId}}/resources:
+    get:
+      summary: 查询 POS 资源（SC-002）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 POS 资源（写，走 Saga，SC-002）
+      responses:
+        '201':
+          description: Created
+  /api/pms/{{tenantId}}/resources:
+    get:
+      summary: 查询 PMS 资源（SC-002）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 PMS 资源（写，走 Saga，SC-002）
+      responses:
+        '201':
+          description: Created
+  /api/sos/{{tenantId}}/resources:
+    get:
+      summary: 查询 SOS 资源（SC-003）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 SOS 资源（写，走 Saga，SC-003）
+      responses:
+        '201':
+          description: Created
+  /api/sms/{{tenantId}}/resources:
+    get:
+      summary: 查询 SMS 资源（SC-003）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 SMS 资源（写，走 Saga，SC-003）
+      responses:
+        '201':
+          description: Created
+  /api/dos/{{tenantId}}/resources:
+    get:
+      summary: 查询 DOS 资源（SC-004）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 DOS 资源（写，走 Saga，SC-004）
+      responses:
+        '201':
+          description: Created
+  /api/dms/{{tenantId}}/resources:
+    get:
+      summary: 查询 DMS 资源（SC-004）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 DMS 资源（写，走 Saga，SC-004）
+      responses:
+        '201':
+          description: Created
+  /api/hos/{{tenantId}}/resources:
+    get:
+      summary: 查询 HOS 资源（SC-007）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 HOS 资源（写，走 Saga，SC-007）
+      responses:
+        '201':
+          description: Created
+  /api/hms/{{tenantId}}/resources:
+    get:
+      summary: 查询 HMS 资源（SC-007）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 HMS 资源（写，走 Saga，SC-007）
+      responses:
+        '201':
+          description: Created
+  /api/fos/{{tenantId}}/resources:
+    get:
+      summary: 查询 FOS 资源（SC-008）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 FOS 资源（写，走 Saga，SC-008）
+      responses:
+        '201':
+          description: Created
+  /api/fms/{{tenantId}}/resources:
+    get:
+      summary: 查询 FMS 资源（SC-008）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 FMS 资源（写，走 Saga，SC-008）
+      responses:
+        '201':
+          description: Created
+  /api/gos/{{tenantId}}/resources:
+    get:
+      summary: 查询 GOS 资源（SC-009）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 GOS 资源（写，走 Saga，SC-009）
+      responses:
+        '201':
+          description: Created
+  /api/gms/{{tenantId}}/resources:
+    get:
+      summary: 查询 GMS 资源（SC-009）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 GMS 资源（写，走 Saga，SC-009）
+      responses:
+        '201':
+          description: Created
+  /api/oos/{{tenantId}}/resources:
+    get:
+      summary: 查询 OOS 资源（SC-010）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 OOS 资源（写，走 Saga，SC-010）
+      responses:
+        '201':
+          description: Created
+  /api/oms/{{tenantId}}/resources:
+    get:
+      summary: 查询 OMS 资源（SC-010）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 OMS 资源（写，走 Saga，SC-010）
+      responses:
+        '201':
+          description: Created
+  /api/vos/{{tenantId}}/resources:
+    get:
+      summary: 查询 VOS 资源（SC-010）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 VOS 资源（写，走 Saga，SC-010）
+      responses:
+        '201':
+          description: Created
+  /api/vms/{{tenantId}}/resources:
+    get:
+      summary: 查询 VMS 资源（SC-010）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 VMS 资源（写，走 Saga，SC-010）
+      responses:
+        '201':
+          description: Created
+  /api/ios/{{tenantId}}/resources:
+    get:
+      summary: 查询 IOS 资源（SC-011）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 IOS 资源（写，走 Saga，SC-011）
+      responses:
+        '201':
+          description: Created
+  /api/ims/{{tenantId}}/resources:
+    get:
+      summary: 查询 IMS 资源（SC-011）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 IMS 资源（写，走 Saga，SC-011）
+      responses:
+        '201':
+          description: Created
+  /api/aos/{{tenantId}}/resources:
+    get:
+      summary: 查询 AOS 资源（SC-012）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 AOS 资源（写，走 Saga，SC-012）
+      responses:
+        '201':
+          description: Created
+  /api/ams/{{tenantId}}/resources:
+    get:
+      summary: 查询 AMS 资源（SC-012）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 AMS 资源（写，走 Saga，SC-012）
+      responses:
+        '201':
+          description: Created
+  /api/oas/{{tenantId}}/resources:
+    get:
+      summary: 查询 OAS 资源（SC-012）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 OAS 资源（写，走 Saga，SC-012）
+      responses:
+        '201':
+          description: Created
+  /api/xbu/{{tenantId}}/resources:
+    get:
+      summary: 查询 XBU 资源（SC-013）
+      parameters:
+      - name: tenantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: 创建 XBU 资源（写，走 Saga，SC-013）
+      responses:
+        '201':
+          description: Created
+components:
+  schemas:
+    AlertTriggeredEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: AlertTriggered
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    AppealReviewedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: AppealReviewed
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    AppealSubmittedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: AppealSubmitted
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    CartCreatedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: CartCreated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    CaseApprovedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: CaseApproved
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    CaseClosedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: CaseClosed
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    CaseCreatedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: CaseCreated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    CompensationTriggeredEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: CompensationTriggered
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ComplianceCheckedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ComplianceChecked
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ConfigChangedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ConfigChanged
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ContextSwitchedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ContextSwitched
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ContractFulfilledEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ContractFulfilled
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    DDFCompletedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: DDFCompleted
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    DLQRoutingEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: DLQRouting
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    DailyClearedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: DailyCleared
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    DecisionMadeEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: DecisionMade
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    DeploymentTriggeredEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: DeploymentTriggered
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    EventConsumedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: EventConsumed
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    EventIdempotentEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: EventIdempotent
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    EventPublishedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: EventPublished
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    FundTransferredEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: FundTransferred
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    GraduatedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: Graduated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    GraduationReviewedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: GraduationReviewed
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    HatGrantedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: HatGranted
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    HatRevokedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: HatRevoked
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    IPApprovedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: IPApproved
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    IPListedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: IPListed
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    IPSubmittedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: IPSubmitted
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    IncidentResolvedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: IncidentResolved
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    InvestmentApprovedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: InvestmentApproved
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    LedgerArchivedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: LedgerArchived
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    LicenseRequestedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: LicenseRequested
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    LicenseSignedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: LicenseSigned
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    MatchCreatedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: MatchCreated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    MatchRequestedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: MatchRequested
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    MeteringReportedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: MeteringReported
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    MilestoneReachedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: MilestoneReached
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    MonthlyClosedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: MonthlyClosed
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    OrderCompletedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: OrderCompleted
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    OrderConfirmedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: OrderConfirmed
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    OrderCreatedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: OrderCreated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    OrderFulfilledEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: OrderFulfilled
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    OrderShippedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: OrderShipped
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    PaymentSucceededEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: PaymentSucceeded
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    PermissionComputedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: PermissionComputed
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    PostInvestmentTrackedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: PostInvestmentTracked
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ProductApprovedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ProductApproved
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ProductCreatedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ProductCreated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ProductSyncedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ProductSynced
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ProjectApprovedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ProjectApproved
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ProjectDiscoveredEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ProjectDiscovered
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ProjectSubmittedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ProjectSubmitted
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ReconciliationStartedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ReconciliationStarted
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    RecruitedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: Recruited
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ResumeSubmittedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ResumeSubmitted
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ReviewSubmittedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ReviewSubmitted
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    RiskInterceptedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: RiskIntercepted
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    RoyaltySettledEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: RoyaltySettled
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    RuleCreatedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: RuleCreated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    RulePublishedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: RulePublished
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ServiceFeeSettledEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ServiceFeeSettled
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    SettlementGeneratedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: SettlementGenerated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    SettlementPaidEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: SettlementPaid
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ShipmentCreatedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ShipmentCreated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    ShopCreatedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: ShopCreated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    StatementApprovedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: StatementApproved
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    SupplierRegisteredEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: SupplierRegistered
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    SupplyRegisteredEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: SupplyRegistered
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    TalentRegisteredEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: TalentRegistered
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    TaskAssignedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: TaskAssigned
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
+    TenantCreatedEvent:
+      type: object
+      required:
+      - eventType
+      - eventId
+      - tenantId
+      - occurredAt
+      properties:
+        eventType:
+          type: string
+          example: TenantCreated
+        eventId:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+          description: 幂等键组成：eventType+eventId
+        occurredAt:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          description: 业务载荷（详见各 SC-xxx）
